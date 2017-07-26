@@ -22,12 +22,10 @@ function choose(piece) {
 }
 
 function reset() {
-    if(allSet()) {
-        game.row1 = [];
-        game.row2 = [];
-        game.row3 = [];
-        spotsLeft = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-    }
+    game.row1 = [];
+    game.row2 = [];
+    game.row3 = [];
+    spotsLeft = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 }
 
 //if every row is set

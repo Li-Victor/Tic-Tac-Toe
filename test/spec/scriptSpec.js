@@ -117,10 +117,10 @@ describe('reset function', function () {
         spotsLeft = [0];
 
         reset();
-        expect(game.row1).toEqual([ , "X", "X"]);
-        expect(game.row2).toEqual(["X", "X", "X"]);
-        expect(game.row3).toEqual(["X", "X", "X"]);
-        expect(spotsLeft).toEqual([0]);
+        expect(game.row1).toEqual([]);
+        expect(game.row2).toEqual([]);
+        expect(game.row3).toEqual([]);
+        expect(spotsLeft).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8]);
 
     });
 

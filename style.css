@@ -1,0 +1,49 @@
+.dont_display {
+    visibility: hidden;
+}
+
+.do_display {
+    visibility: visible;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    display: table-cell;
+}
+
+.square0 {
+    background-color: #ff5252;
+}
+
+.square1 {
+    background-color: #ff80ab;
+}
+
+.square2 {
+    background-color: #ea80fc;
+}
+
+.square3 {
+    background-color: #b388ff;
+}
+
+.square4 {
+    background-color: #8C9EFF;
+}
+
+.square5 {
+    background-color: #82B1FF;
+}
+
+.square6 {
+    background-color: #80D8FF;
+}
+
+.square7 {
+    background-color: #84FFFF
+}
+
+.square8 {
+    background-color: #A7FFEB;
+}

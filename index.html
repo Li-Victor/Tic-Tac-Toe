@@ -3,10 +3,63 @@
     <head>
         <meta charset="utf-8">
         <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="./normalize.css">
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
 
+        <div class="container">
 
-        <script src="./script.js"></script>
+            <div class="panel .dont_display">
+                <form class="panel__form">
+                    What do you want to play as? </br>
+                    O goes first
+                    <div>
+                        <input type="radio" id="O" value="O" name="O">
+                        <label for="O">O</label>
+
+                        <input type="radio" id="X" value="X" name="O">
+                        <label for="X">X</label>
+                    </div>
+
+                    <div>
+                        <button class="panel__button" disabled>Play</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="game__container dont_display">
+                <div class="new_game">
+                    <button class="new_game_reset">Reset</button>
+                </div>
+
+                <div class="row">
+                    <div class="square square0" data-key="0"></div>
+                    <div class="square square1" data-key="1"></div>
+                    <div class="square square2" data-key="2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="square square3" data-key="3"></div>
+                    <div class="square square4" data-key="4"></div>
+                    <div class="square square5" data-key="5"></div>
+                </div>
+
+                <div class="row">
+                    <div class="square square6" data-key="6"></div>
+                    <div class="square square7" data-key="7"></div>
+                    <div class="square square8" data-key="8"></div>
+                </div>
+
+                <div class="game__container__message"></div>
+
+            </div>
+
+        </div>
+
+
+        <script src="./model.js"></script>
+        <script src="./controller.js"></script>
+        <script src="./view.js"></script>
     </body>
 </html>
