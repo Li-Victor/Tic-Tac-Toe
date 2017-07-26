@@ -11,9 +11,14 @@ var computer;
 
 var spotsLeft = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
+var userTurn;
+
+//O start first
+//if user pick X, then computer starts first
 function choose(piece) {
     user = piece;
     computer = piece === 'O' ? 'X' : 'O';
+    userTurn = piece === 'O' ? true : false;
 }
 
 function reset() {
@@ -80,12 +85,52 @@ function computerChoose() {
 function userChoose(position) {
     if(spotsLeft.indexOf(position) == -1) return false;
 
-    if(position >= 0 && position < 3) chooseLocationRow1(position, computer);
-    else if(position >= 3 && position < 6) chooseLocationRow2(position - 3, computer);
-    else chooseLocationRow3(position - 6, computer);
+    if(position >= 0 && position < 3) chooseLocationRow1(position, user);
+    else if(position >= 3 && position < 6) chooseLocationRow2(position - 3, user);
+    else chooseLocationRow3(position - 6, user);
     return true;
 }
 
 function win() {
+    //row win
+    if(rowSet(game.row1) && game.row1[0] === game.row1[1] && game.row1[0] === game.row1[2] && game.row1[1] === game.row1[2]
+        && game.row1[0] != undefined && game.row1[1] != undefined && game.row1[2] != undefined) return true;
 
+    if(rowSet(game.row2) && game.row2[0] === game.row2[1] && game.row2[0] === game.row2[2] && game.row2[1] === game.row2[2]
+        && game.row2[0] != undefined && game.row2[1] != undefined && game.row2[2] != undefined) return true;
+
+    if(rowSet(game.row3) && game.row3[0] === game.row3[1] && game.row3[0] === game.row3[2] && game.row3[1] === game.row3[2]
+        && game.row3[0] != undefined && game.row3[1] != undefined && game.row3[2] != undefined) return true;
+
+
+    //column win
+    if(game.row1[0] === game.row2[0] && game.row1[0] === game.row3[0] && game.row2[0] === game.row3[0]
+        && game.row1[0] != undefined && game.row2[0] != undefined && game.row3[0] != undefined) return true;
+
+    if(game.row1[1] === game.row2[1] && game.row1[1] === game.row3[1] && game.row2[1] === game.row3[1]
+        && game.row1[1] != undefined && game.row2[1] != undefined && game.row3[1] != undefined) return true;
+
+    if(game.row1[2] === game.row2[2] && game.row1[2] === game.row3[2] && game.row2[2] === game.row3[2]
+        && game.row1[2] != undefined && game.row2[2] != undefined && game.row3[2] != undefined) return true;
+
+
+    //diagonal win
+    if(game.row1[0] === game.row2[1] && game.row1[0] === game.row3[2] && game.row2[1] === game.row3[2]
+        && game.row1[0] != undefined && game.row2[1] != undefined && game.row3[2] != undefined) return true;
+
+    if(game.row1[2] === game.row2[1] && game.row1[2] === game.row3[0] && game.row2[1] === game.row3[0]
+        && game.row1[2] != undefined && game.row2[1] != undefined && game.row3[0] != undefined) return true;
+
+    return false;
+}
+
+function whoWins() {
+    if(win()) {
+        if(userTurn) return 'You win!';
+        return 'You lose!';
+    }
+}
+
+function gameEnd() {
+    return win() || allSet();
 }
