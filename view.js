@@ -6,10 +6,11 @@ var panel = document.querySelector('.panel');
 var gameContainer = document.querySelector('.game__container');
 var resetButton = document.querySelector('.new_game_reset');
 var squares = document.querySelectorAll('.square');
+var message = document.querySelector('.game__container__message');
 
 radioButtons.forEach(function (button) {
     button.addEventListener('click', function () {
-        choose(this.value);
+        pick(this.value);
         panelButton.disabled = false;
     });
 });
@@ -27,6 +28,12 @@ panelButton.addEventListener('click', function () {
         button.checked = false;
     });
 
+    squares.forEach(function (square) {
+        square.innerText = '';
+    });
+    message.innerText = '';
+
+    controlPlayButton();
 });
 
 resetButton.addEventListener('click', function () {
@@ -34,10 +41,12 @@ resetButton.addEventListener('click', function () {
     panel.classList.add('do_display');
     gameContainer.classList.remove('do_display');
     gameContainer.classList.add('dont_display');
+
+    controlResetButton();
 });
 
 squares.forEach(function (square) {
     square.addEventListener('click', function () {
-
+        controlSquareButton(Number(this.dataset.key));
     });
-})
+});

@@ -73,11 +73,13 @@ function chooseLocationRow3(index, piece) {
 
 //computer chooses random spot
 function computerChoose() {
-    var rand = Math.floor(Math.random() * spotsLeft.length - 1);
+    var rand = Math.floor(Math.random() * (spotsLeft.length - 1));
     var position = spotsLeft[rand];
     if(position >= 0 && position < 3) chooseLocationRow1(position, computer);
     else if(position >= 3 && position < 6) chooseLocationRow2(position - 3, computer);
     else chooseLocationRow3(position - 6, computer);
+
+    return position;
 }
 
 function userChoose(position) {
@@ -125,8 +127,9 @@ function win() {
 function whoWins() {
     if(win()) {
         if(userTurn) return 'You win!';
-        return 'You lose!';
+        return 'You lose! Better Luck Next Time';
     }
+    return 'No one wins! Better Luck Next Time';
 }
 
 function gameEnd() {
