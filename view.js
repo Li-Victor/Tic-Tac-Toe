@@ -1,32 +1,28 @@
 'use strict';
 
-var radioButtons = document.querySelectorAll('input');
+var checkBoxInput = document.querySelector('input');
 var panelButton = document.querySelector('.panel__button');
 var panel = document.querySelector('.panel');
 var gameContainer = document.querySelector('.game__container');
 var resetButton = document.querySelector('.new_game_reset');
 var squares = document.querySelectorAll('.square');
 var message = document.querySelector('.game__container__message');
-
-radioButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-        pick(this.value);
-        panelButton.disabled = false;
-    });
-});
+var labelSwitch = document.querySelector('.switch div');
 
 //play button
-panelButton.addEventListener('click', function () {
+panelButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    labelSwitch.classList.add('notransition');
     panel.classList.remove('do_display');
     panel.classList.add('dont_display');
     gameContainer.classList.remove('dont_display');
     gameContainer.classList.add('do_display');
 
-    panelButton.disabled = true;
-    //reset radio button
-    radioButtons.forEach(function (button) {
-        button.checked = false;
-    });
+    if (checkBoxInput.checked) {
+        pick('X');
+    } else {
+        pick('O');
+    }
 
     squares.forEach(function (square) {
         square.innerText = '';
@@ -37,6 +33,7 @@ panelButton.addEventListener('click', function () {
 });
 
 resetButton.addEventListener('click', function () {
+    labelSwitch.classList.remove('notransition');
     panel.classList.remove('dont_display');
     panel.classList.add('do_display');
     gameContainer.classList.remove('do_display');

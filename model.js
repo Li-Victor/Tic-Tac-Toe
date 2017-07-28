@@ -73,7 +73,7 @@ function chooseLocationRow3(index, piece) {
 
 //computer chooses random spot
 function computerChoose() {
-    var rand = Math.floor(Math.random() * (spotsLeft.length - 1));
+    var rand = Math.floor(Math.random() * spotsLeft.length);
     var position = spotsLeft[rand];
     if(position >= 0 && position < 3) chooseLocationRow1(position, computer);
     else if(position >= 3 && position < 6) chooseLocationRow2(position - 3, computer);

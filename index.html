@@ -12,18 +12,21 @@
 
             <div class="panel .dont_display">
                 <form class="panel__form">
-                    What do you want to play as? </br>
-                    O goes first
-                    <div>
-                        <input type="radio" id="O" value="O" name="O">
-                        <label for="O">O</label>
+                    <div class="panel__text">Play as O or X? O goes first</div>
 
-                        <input type="radio" id="X" value="X" name="O">
-                        <label for="X">X</label>
+                    <div class="switch_container">
+                        <div class="switch_O">O</div>
+
+                        <label class="switch">
+                              <input type="checkbox" />
+                              <div></div>
+                        </label>
+
+                        <div class="switch_X">X</div>
                     </div>
 
                     <div>
-                        <button class="panel__button" disabled>Play</button>
+                        <button class="panel__button">Play</button>
                     </div>
                 </form>
             </div>
