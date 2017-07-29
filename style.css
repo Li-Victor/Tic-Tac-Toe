@@ -10,16 +10,32 @@ html {
     visibility: visible;
 }
 
-.square {
-    width: 100px;
-    height: 100px;
-    display: table-cell;
+/*table design from 
+http://jsfiddle.net/webtiki/kQXkt/*/
+table {
+    width:30vw;
+}
+td {
+    width:30%;
+    position:relative;
+}
+td:after{
+    content:'';
+    display:block;
+    margin-top:100%;
+}
+td .content {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
 }
 
 .container {
     margin-top: 10vh;
     display: inline-block;
-    margin-left: 40vw;
+    margin-left: 34.5vw;
 }
 
 .square0 {

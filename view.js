@@ -5,7 +5,7 @@ var panelButton = document.querySelector('.panel__button');
 var panel = document.querySelector('.panel');
 var gameContainer = document.querySelector('.game__container');
 var resetButton = document.querySelector('.new_game_reset');
-var squares = document.querySelectorAll('.square');
+var squares = document.querySelectorAll('.content');
 var message = document.querySelector('.game__container__message');
 var labelSwitch = document.querySelector('.switch div');
 
