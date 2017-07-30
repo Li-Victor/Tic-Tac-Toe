@@ -37,6 +37,7 @@ function allSet() {
     return false;
 }
 
+//checks to see if the row is set
 function rowSet(row) {
     return row[0] != undefined && row[1] != undefined && row[2] != undefined;
 }
@@ -91,6 +92,7 @@ function userChoose(position) {
     return true;
 }
 
+//looks at game object to determine if anyone has won
 function win() {
     //row win
     if(rowSet(game.row1) && game.row1[0] === game.row1[1] && game.row1[0] === game.row1[2] && game.row1[1] === game.row1[2]
@@ -132,6 +134,7 @@ function whoWins() {
     return 'No one wins! Better Luck Next Time';
 }
 
+//game ends when every won or everything is all set
 function gameEnd() {
     return win() || allSet();
 }
